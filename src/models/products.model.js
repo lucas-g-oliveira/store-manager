@@ -1,23 +1,16 @@
 const connection = require('./connection');
 
-const findAll = async () => {
+const getAll = async () => {
   const [result] = await connection.execute(
     'SELECT * FROM StoreManager.products',
   );
-  const data = result.map((e) => ({ ...e }));
-  console.log(data);
-  return data;
+  return result.map((e) => ({ ...e }));
 };
 
-const findById = async (id) => {
+const getById = async (id) => {
   const [result] = await connection
     .execute('SELECT * FROM StoreManager.products WHERE  id = ?', [id]);
-  const data = result.map((e) => ({ ...e }));
-  console.log(data);
-  return data;
+  return result.map((e) => ({ ...e }));
 };
 
-findAll();
-findById(1);
-
-module.exports = { findAll };
+module.exports = { getAll, getById };
