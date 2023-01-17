@@ -1,4 +1,5 @@
 const productService = require('../services/productService');
+const validate = require('./validations');
 
 const getAll = async (_req, res) => {
   const products = await productService.getAll();
@@ -14,8 +15,12 @@ const getById = async (req, res) => {
 };
 
 const addNew = async (req, res) => {
-  const result = await productService.addNew(req.body.name);
-  return res.status(201).json(result);
+  const isValid = validate.nameValidator(req);
+  if (!isValid.status) {
+    const result = await productService.addNew(req.body.name);
+    return res.status(201).json(result);
+  }
+  return res.status(isValid.status).json({ message: isValid.message });
 };
 
 /* const printAsync = async (fx) => {
