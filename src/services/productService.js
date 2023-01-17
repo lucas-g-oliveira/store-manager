@@ -1,20 +1,9 @@
 const productsModel = require('../models/products.model');
 
-const getAll = async () => {
-  const products = await productsModel.getAll();
-  return products;
-};
+const getAll = async () => productsModel.getAll();
 
-const getById = async (id) => {
-  const product = await productsModel.getById(id);
-  return product;
-};
+const getById = async (id) => productsModel.getById(id);
 
-/* const printAsync = async (fx) => {
-  const data = await fx();
-  console.log(data);
-};
+const addNew = async (name) => productsModel.addNew(name);
 
-printAsync(() => getById(0)); */
-
-module.exports = { getAll, getById };
+module.exports = { getAll, getById, addNew };

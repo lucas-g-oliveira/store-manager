@@ -4,11 +4,11 @@
     "colId": "history",
     "containerId": "",
     "name": "https://www.http://localhost:3000/products",
-    "url": "localhost:3000/products/0",
+    "url": "localhost:3000/products/2",
     "method": "GET",
     "sortNum": 0,
     "created": "2023-01-16T20:15:35.696Z",
-    "modified": "2023-01-17T18:39:57.665Z",
+    "modified": "2023-01-17T19:23:54.576Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -25,6 +25,25 @@
     "modified": "2023-01-17T18:05:47.445Z",
     "headers": [],
     "params": [],
+    "tests": []
+  },
+  {
+    "_id": "20f9e5c0-ab71-4e18-a6b6-4250743983a7",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://www.localhost:3000/products/",
+    "url": "localhost:3000/products",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-01-17T18:57:34.926Z",
+    "modified": "2023-01-17T19:38:34.587Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\"name\": \"biscreta\"}",
+      "form": []
+    },
     "tests": []
   }
 ]

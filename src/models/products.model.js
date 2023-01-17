@@ -13,4 +13,17 @@ const getById = async (id) => {
   return result.map((e) => ({ ...e }));
 };
 
-module.exports = { getAll, getById };
+const addNew = async (name) => {
+  const [id] = await connection
+    .execute('INSERT INTO products (name) VALUES (?)', [name]);
+  return { id: id.insertId, name };
+};
+
+/* const printAsync = async (fx) => {
+  const data = await fx();
+  console.log(data);
+};
+
+printAsync(() => addNew('biscreta')); */
+
+module.exports = { getAll, getById, addNew };
