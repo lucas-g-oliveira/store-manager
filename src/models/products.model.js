@@ -14,16 +14,9 @@ const getById = async (id) => {
 };
 
 const addNew = async (name) => {
-  const [id] = await connection
-    .execute('INSERT INTO products (name) VALUES (?)', [name]);
+  const querye = 'INSERT INTO StoreManager.products (name) VALUES (?)';
+  const [id] = await connection.execute(querye, [name]);
   return { id: id.insertId, name };
 };
-
-/* const printAsync = async (fx) => {
-  const data = await fx();
-  console.log(data);
-};
-
-printAsync(() => addNew('biscreta')); */
 
 module.exports = { getAll, getById, addNew };

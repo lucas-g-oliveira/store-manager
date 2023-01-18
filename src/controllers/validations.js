@@ -16,4 +16,11 @@ function nameValidator(req) {
   return true;
 }
 
-module.exports = { nameValidator };
+function saleValidator(req) {
+  if (!ifExistsKey('saleId', req.body)) return resKeyNotFound('saleId');
+  if (!ifExistsKey('productId', req.body)) return resKeyNotFound('productId');
+  if (!ifExistsKey('quantity', req.body)) return resKeyNotFound('quantity');
+  return true;
+}
+
+module.exports = { nameValidator, saleValidator };
