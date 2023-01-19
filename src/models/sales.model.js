@@ -1,13 +1,13 @@
 const camelize = require('camelize');
 const connection = require('./connection');
 
-/* const getAll = async () => {
+const getAll = async () => {
   const pQ1 = 'SELECT p.sale_id, s.date ,p.product_id, p.quantity ';
   const pQ2 = 'FROM StoreManager.sales_products AS p ';
   const pQ3 = 'right JOIN StoreManager.sales AS s ON p.sale_id = s.id';
   const [result] = await connection.execute(pQ1 + pQ2 + pQ3);
   return camelize(result.map((e) => ({ ...e })));
-}; */
+};
 
 const getById = async (id) => {
   const pQ1 = 'SELECT p.sale_id, s.date ,p.product_id, p.quantity ';
