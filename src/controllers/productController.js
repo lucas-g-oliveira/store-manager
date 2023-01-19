@@ -7,7 +7,7 @@ const getAll = async (_req, res) => {
 };
 
 const getById = async (req, res) => {
-  const product = await productService.getById(req.params.id);
+  const product = await productService.getById([{ id: req.params.id }]);
   if (product.length > 0) {
     return res.status(200).json(...product);
   }

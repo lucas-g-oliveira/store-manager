@@ -15,9 +15,10 @@ const getById = async (req, res) => {
 };
 
 const addNew = async (req, res) => {
-  const isValid = validate.nameValidator(req);
+  const isValid = await validate.saleValidator(req);
+  console.log(isValid);
   if (!isValid.status) {
-    const result = await salesService.addNew(req.body.name);
+    const result = await salesService.addNew(req.body);
     return res.status(201).json(result);
   }
   return res.status(isValid.status).json({ message: isValid.message });
