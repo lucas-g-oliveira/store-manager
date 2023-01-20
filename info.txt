@@ -1,1 +1,0 @@
-open console of test container --> docker exec -it store_manager bash

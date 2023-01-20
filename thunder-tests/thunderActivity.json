@@ -135,5 +135,24 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "dfe36b37-347e-4390-b0fb-fc3db61f7774",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/product/1",
+    "url": "localhost:3000/product/1",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2023-01-19T23:18:18.026Z",
+    "modified": "2023-01-19T23:18:18.026Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\"name\":\"aquamen\"}",
+      "form": []
+    },
+    "tests": []
   }
 ]

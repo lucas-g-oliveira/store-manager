@@ -23,13 +23,22 @@ const addNew = async (req, res) => {
   return res.status(isValid.status).json({ message: isValid.message });
 };
 
+const updateById = async (req, res) => {
+  const isValid = await validate.updateProductValidator(req);
+  if (!isValid.status) {
+    const updated = await productService.updateById(req.params.id, req.body.name);
+    return res.status(200).json(updated);
+  }
+  return res.status(isValid.status).send({ message: isValid.message });
+};
+
+const deleteById = (id) => id;
+
 /* const printAsync = async (fx) => {
   const data = await fx();
   console.log(data);
 };
 
-printAsync(getAll); */
+printAsync(() => productService.updateById(2, 'spyderman')); */
 
-module.exports = {
-  getAll, getById, addNew,
-};
+module.exports = { getAll, getById, addNew, deleteById, updateById };

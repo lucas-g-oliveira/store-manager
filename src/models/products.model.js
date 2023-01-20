@@ -23,11 +23,19 @@ const addNew = async (name) => {
   return { id: id.insertId, name };
 };
 
+const deleteById = async (id) => id;
+
+const updateById = async (id, newName) => {
+  const querye = 'UPDATE StoreManager.products SET name = ? WHERE id = ?';
+  await connection.execute(querye, [newName, id]);
+  return { id, name: newName };
+};
+
 /* const printAsync = async (fx) => {
   const data = await fx();
   console.log(data);
 };
 
-printAsync(() => getById([{ id: 1 }, { i: 2 }])); */
+printAsync(() => updateById(1, 'Batman')); */
 
-module.exports = { getAll, getById, addNew };
+module.exports = { getAll, getById, addNew, deleteById, updateById };

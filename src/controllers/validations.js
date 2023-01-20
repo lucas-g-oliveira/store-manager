@@ -16,9 +16,17 @@ function nameValidator(req) {
   return true;
 }
 
+const updateProductValidator = async (req) => {
+  const msg = '"name" length must be at least 5 characters long';
+  if (!ifExistsKey('name', req.body)) return resKeyNotFound('name');
+  if (req.body.name.length < 5) return resp(CODE_422, msg);
+  const products = await productService.getById([{ id: req.params.id }]);
+  if (products.length === 0) return notFound('Product');
+  return true;
+};
+
 const saleValidator = async (req) => {
   const msgQtd = (key) => `"${key}" must be greater than or equal to 1`;
-
   if (!req.body.every((e) => ifExistsKey('productId', e))) return resKeyNotFound('productId');
   if (!req.body.every((e) => ifExistsKey('quantity', e))) return resKeyNotFound('quantity');
   if (!req.body.every((e) => e.quantity > 0)) return resp(CODE_422, msgQtd('quantity'));
@@ -28,4 +36,4 @@ const saleValidator = async (req) => {
   return true;
 };
 
-module.exports = { nameValidator, saleValidator };
+module.exports = { nameValidator, saleValidator, updateProductValidator };
