@@ -23,7 +23,10 @@ const addNew = async (name) => {
   return { id: id.insertId, name };
 };
 
-const deleteById = async (id) => id;
+const deleteById = async (id) => {
+  const querye = 'DELETE FROM StoreManager.products WHERE id= ?';
+  await connection.execute(querye, [id]);
+};
 
 const updateById = async (id, newName) => {
   const querye = 'UPDATE StoreManager.products SET name = ? WHERE id = ?';
@@ -33,7 +36,7 @@ const updateById = async (id, newName) => {
 
 /* const printAsync = async (fx) => {
   const data = await fx();
-  console.log(data);
+  console.log(data);tT
 };
 
 printAsync(() => updateById(1, 'Batman')); */

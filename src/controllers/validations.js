@@ -36,4 +36,10 @@ const saleValidator = async (req) => {
   return true;
 };
 
-module.exports = { nameValidator, saleValidator, updateProductValidator };
+const deleteValidator = async (req) => {
+  const products = await productService.getById([{ id: req.params.id }]);
+  if (products.length === 0) return notFound('Product');
+  return true;
+};
+
+module.exports = { nameValidator, saleValidator, updateProductValidator, deleteValidator };

@@ -32,7 +32,14 @@ const updateById = async (req, res) => {
   return res.status(isValid.status).send({ message: isValid.message });
 };
 
-const deleteById = (id) => id;
+const deleteById = async (req, res) => {
+  const isValid = await validate.deleteValidator(req);
+  if (!isValid.status) {
+    await productService.deleteById(req.params.id);
+    return res.status(204).send();
+  }
+  return res.status(isValid.status).send({ message: isValid.message });
+};
 
 /* const printAsync = async (fx) => {
   const data = await fx();
