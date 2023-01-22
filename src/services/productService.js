@@ -6,7 +6,7 @@ const getById = async (id) => productsModel.getById(id);
 
 const addNew = async (name) => productsModel.addNew(name);
 
-const deleteById = async (name) => productsModel.deleteById(name);
+const deleteById = async (id) => productsModel.deleteById(id);
 
 const updateById = async (id, newName) => productsModel.updateById(id, newName);
 

@@ -34,6 +34,6 @@ const addNew = async (products = []) => {
   console.log(data);
 };
 
-printAsync(() => getById([{ id: 1 }])); */
+printAsync(getAll); */
 
 module.exports = { getAll, getById, addNew };
