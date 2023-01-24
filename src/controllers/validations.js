@@ -20,8 +20,8 @@ const updateProductValidator = async (req) => {
   const msg = '"name" length must be at least 5 characters long';
   if (!ifExistsKey('name', req.body)) return resKeyNotFound('name');
   if (req.body.name.length < 5) return resp(CODE_422, msg);
-  const products = await productService.getById([{ id: req.params.id }]);
-  if (products.length === 0) return notFound('Product');
+  const { message } = await productService.getById([{ id: req.params.id }]);
+  if (message.length === 0) return notFound('Product');
   return true;
 };
 
@@ -31,14 +31,14 @@ const saleValidator = async (req) => {
   if (!req.body.every((e) => ifExistsKey('quantity', e))) return resKeyNotFound('quantity');
   if (!req.body.every((e) => e.quantity > 0)) return resp(CODE_422, msgQtd('quantity'));
   const idProducts = req.body.map((e) => ({ id: e.productId }));
-  const products = await productService.getById(idProducts);
-  if (products.length !== req.body.length) return notFound('Product');
+  const { message } = await productService.getById(idProducts);
+  if (message.length !== req.body.length) return notFound('Product');
   return true;
 };
 
 const deleteValidator = async (req) => {
-  const products = await productService.getById([{ id: req.params.id }]);
-  if (products.length === 0) return notFound('Product');
+  const { message } = await productService.getById([{ id: req.params.id }]);
+  if (message.length === 0) return notFound('Product');
   return true;
 };
 

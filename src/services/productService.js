@@ -1,13 +1,27 @@
-const productsModel = require('../models/products.model');
+const model = require('../models');
 
-const getAll = async () => productsModel.getAll();
+const objReturn = (data) => ({ status: null, message: data });
 
-const getById = async (id) => productsModel.getById(id);
+const getAll = async () => {
+  const data = await model.productsModel.getAll();
+  return objReturn(data);
+};
 
-const addNew = async (name) => productsModel.addNew(name);
+const getById = async (id) => {
+  const data = await model.productsModel.getById(id);
+  return objReturn(data);
+};
 
-const deleteById = async (id) => productsModel.deleteById(id);
+const addNew = async (name) => {
+  const data = await model.productsModel.addNew(name);
+  return objReturn(data);
+};
 
-const updateById = async (id, newName) => productsModel.updateById(id, newName);
+const deleteById = async (id) => model.productsModel.deleteById(id);
+
+const updateById = async (id, newName) => {
+  const data = await model.productsModel.updateById(id, newName);
+  return objReturn(data);
+};
 
 module.exports = { getAll, getById, addNew, deleteById, updateById };
