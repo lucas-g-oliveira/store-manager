@@ -11,7 +11,7 @@ const getById = async (req, res) => {
   if (message.length > 0) {
     return res.status(200).json(message[0]);
   }
-  return res.status(404).send({ message: 'Product not found' });
+  return res.status(404).json({ message: 'Product not found' });
 };
 
 const addNew = async (req, res) => {

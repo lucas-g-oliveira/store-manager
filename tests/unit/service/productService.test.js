@@ -6,6 +6,10 @@ const productsService = require('../../../src/services/productService');
 const productsModel = require('../../../src/models/products.model');
 
 describe('Verifica se service produtos se comporta como esperado', function () {
+  afterEach(() => {
+    sinon.restore();
+  });
+  
   it('Verifica se é possível listar todos os produtos', async function () {
     //arrage
     sinon.stub(productsService, 'getAll')
