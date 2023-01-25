@@ -6,6 +6,7 @@ const getAll = async () => {
   const pQ2 = 'FROM StoreManager.sales_products AS p ';
   const pQ3 = 'JOIN StoreManager.sales AS s ON p.sale_id = s.id';
   const [result] = await connection.execute(pQ1 + pQ2 + pQ3);
+ /*  console.log(result); */
   const data = camelize(result.map((e) => ({ ...e })));
   return data;
 };
@@ -31,9 +32,10 @@ const addNew = async (products = []) => {
 
 /* const printAsync = async (fx) => {
   const data = await fx();
-  console.log(data);
-};
+  // console.log(data);
+  return data;
+}; */
 
-printAsync(getAll); */
+/* printAsync(getAll); */
 
 module.exports = { getAll, getById, addNew };

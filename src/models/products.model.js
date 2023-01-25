@@ -34,4 +34,12 @@ const updateById = async (id, newName) => {
   return { id, name: newName };
 };
 
+/* const printAsync = async (fx) => {
+  const data = await fx();
+ // return data;
+   console.log(data);
+};
+
+printAsync(() => getById([{ id: 1 }])); */
+
 module.exports = { getAll, getById, addNew, deleteById, updateById };
