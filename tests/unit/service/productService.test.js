@@ -12,8 +12,8 @@ describe('Verifica se service produtos se comporta como esperado', function () {
   
   it('Verifica se é possível listar todos os produtos', async function () {
     //arrage
-    sinon.stub(productsService, 'getAll')
-      .resolves({ status: null, message: allProducts });
+    sinon.stub(productsModel, 'getAll')
+      .resolves(allProducts);
     //act
     const result = await productsService.getAll();
     //assertion
