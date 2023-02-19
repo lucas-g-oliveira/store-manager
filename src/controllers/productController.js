@@ -41,11 +41,4 @@ const deleteById = async (req, res) => {
   return res.status(isValid.status).send({ message: isValid.message });
 };
 
-/* const printAsync = async (fx) => {
-  const data = await fx();
-  console.log(data);
-};
-
-printAsync(() => productService.updateById(2, 'spyderman')); */
-
 module.exports = { getAll, getById, addNew, deleteById, updateById };
